@@ -3,6 +3,7 @@ import HomeNav from "./wrappers/HomeNav";
 import Home from "./pages/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import UserDashboardNav from "./wrappers/UserDashboardNav";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element: <Login />
       }
     ]
+  },
+  {
+    path: "dashboard",
+    element: <UserDashboardNav />
   }
 ]);
 
