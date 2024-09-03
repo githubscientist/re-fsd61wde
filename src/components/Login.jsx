@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { selectEmail, selectPassword, setEmail, setPassword } from "../features/auth/loginSlice";
 import authServices from "../services/authServices";
+import { useEffect } from "react";
 
 const Login = () => {
 
@@ -10,6 +11,14 @@ const Login = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const user = useLoaderData();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard');
+        }
+    }, []);
 
     const handleCancel = () => {
         window.history.back();

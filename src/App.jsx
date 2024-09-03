@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import UserDashboardNav from "./wrappers/UserDashboardNav";
+import authLoader from "./loaders/authLoader";
+import Logout from "./components/Logout";
 
 const router = createBrowserRouter([
   {
@@ -20,13 +22,19 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />
+        element: <Login />,
+        loader: authLoader
       }
     ]
   },
   {
     path: "dashboard",
-    element: <UserDashboardNav />
+    element: <UserDashboardNav />,
+    loader: authLoader
+  },
+  {
+    path: "logout",
+    element: <Logout />
   }
 ]);
 
