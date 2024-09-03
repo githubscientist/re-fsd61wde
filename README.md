@@ -1,5 +1,7 @@
 # Job Portal Application
 
+## creative name: Jobify
+
 This is a job portal application where job seekers can search for jobs and apply for them. Employers can post jobs and view the applications for their jobs.
 
 ## Features
