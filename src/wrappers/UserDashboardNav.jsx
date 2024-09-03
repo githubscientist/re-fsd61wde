@@ -1,8 +1,22 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, Outlet, useLoaderData, useNavigate } from "react-router-dom";
 
 const UserDashboardNav = () => {
 
     const user = useLoaderData();
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            alert('You need to login first');
+
+            // redirect to login page
+            setTimeout(() => {
+                navigate('/login');
+            }, 500);
+        }
+    }, [user]);
 
     return (
         <div>
@@ -15,7 +29,7 @@ const UserDashboardNav = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link disabled">{`Welcome ${user.email}`}</Link>
+                                <Link className="nav-link disabled">{`Welcome ${user ? user.email : ''}`}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">Logout</Link>

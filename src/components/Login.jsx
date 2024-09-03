@@ -18,7 +18,7 @@ const Login = () => {
         if (user) {
             navigate('/dashboard');
         }
-    }, []);
+    }, [user]);
 
     const handleCancel = () => {
         window.history.back();
