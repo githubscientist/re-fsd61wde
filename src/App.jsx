@@ -9,6 +9,12 @@ import Logout from "./components/Logout";
 import DashboardWrapper from "./wrappers/DashboardWrapper";
 import Dashboard from "./components/Dashboard";
 import dashboardLoader from "./loaders/dashboardLoader";
+import companiesLoader from "./loaders/companiesLoader";
+import Companies from "./components/Companies";
+import jobsLoader from "./loaders/jobsLoader";
+import Jobs from "./components/Jobs";
+import Company from "./components/Company";
+import companyLoader from "./loaders/companyLoader";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +49,21 @@ const router = createBrowserRouter([
             index: true,
             element: <Dashboard />,
             loader: dashboardLoader
+          },
+          {
+            path: "companies",
+            element: <Companies />,
+            loader: companiesLoader
+          },
+          {
+            path: "jobs",
+            element: <Jobs />,
+            loader: jobsLoader
+          },
+          {
+            path: "companies/:id",
+            element: <Company />,
+            loader: companyLoader
           }
         ]
       }
