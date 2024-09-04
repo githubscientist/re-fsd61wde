@@ -6,6 +6,9 @@ import Login from "./components/Login";
 import UserDashboardNav from "./wrappers/UserDashboardNav";
 import authLoader from "./loaders/authLoader";
 import Logout from "./components/Logout";
+import DashboardWrapper from "./wrappers/DashboardWrapper";
+import Dashboard from "./components/Dashboard";
+import dashboardLoader from "./loaders/dashboardLoader";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,20 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <UserDashboardNav />,
-    loader: authLoader
+    loader: authLoader,
+    children: [
+      {
+        path: "",
+        element: <DashboardWrapper />,
+        children: [
+          {
+            index: true,
+            element: <Dashboard />,
+            loader: dashboardLoader
+          }
+        ]
+      }
+    ]
   },
   {
     path: "logout",

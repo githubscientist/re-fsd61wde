@@ -66,3 +66,9 @@ This project is licensed under the MIT License.
 ## Acknowledgements
 
 - [Sathish Gnanaprakasam]()
+
+## List of Topics for Recap
+
+- React Redux
+- Node + Express
+- Deployment of Node + Express
