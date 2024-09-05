@@ -15,6 +15,11 @@ import jobsLoader from "./loaders/jobsLoader";
 import Jobs from "./components/Jobs";
 import Company from "./components/Company";
 import companyLoader from "./loaders/companyLoader";
+import Application from "./components/Application";
+import jobLoader from "./loaders/jobLoader";
+import Applications from "./components/Applications";
+import applicationsLoader from "./loaders/applicationsLoader";
+import applicationLoader from "./loaders/applicationLoader";
 
 const router = createBrowserRouter([
   {
@@ -58,12 +63,24 @@ const router = createBrowserRouter([
           {
             path: "jobs",
             element: <Jobs />,
-            loader: jobsLoader
+            loader: jobsLoader,
+            children: [
+              {
+                path: ":id",
+                element: <Application />,
+                loader: applicationLoader
+              }
+            ]
           },
           {
             path: "companies/:id",
             element: <Company />,
             loader: companyLoader
+          },
+          {
+            path: "applications",
+            element: <Applications />,
+            loader: applicationsLoader
           }
         ]
       }
